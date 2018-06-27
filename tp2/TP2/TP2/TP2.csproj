@@ -69,6 +69,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Atractivos.aspx" />
+    <Content Include="Contents\img\chalten-1.jpg" />
+    <Content Include="Contents\img\el-chalten-aventura_2095_201610211216251.JPG" />
+    <Content Include="Contents\img\el-chalten-cerro-torre.jpg" />
+    <Content Include="Contents\img\el-chalten-regreso-a-la-naturaleza-1.jpg" />
+    <Content Include="Contents\img\logo.png" />
+    <Content Include="Contents\img\resize_1525023107.jpg" />
     <Content Include="Contents\Styles\styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />

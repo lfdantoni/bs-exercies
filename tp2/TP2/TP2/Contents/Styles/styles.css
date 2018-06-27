@@ -1,3 +1,60 @@
 ﻿body {
-    background-color: red;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #c987a0;
+}
+
+#logo {
+    text-align: center;
+    background-color: #a54369;
+}
+
+#logo img {
+    height: 100px;
+}
+
+#menu {
+    width: 100%;
+    position: relative;
+    background-color: #c987a0;
+}
+
+#menu a {
+    width: 33.33%;
+    float: left;
+    background-color: #c987a0;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+}
+
+#pie {
+    text-align: center;
+    background-color: #c987a0;
+    font-weight: bold;
+}
+
+#imagenes img{
+    max-width: 100%;
+}
+
+#cuerpo {
+    padding: 15px;
+}
+
+.home-content p {
+    word-spacing: 5px;
+    letter-spacing: 2px;
+}
+
+.home-content p:first-child {
+    text-transform: capitalize;
+    text-indent: 20px;
+}
+
+.color {
+    color: blue;
 }

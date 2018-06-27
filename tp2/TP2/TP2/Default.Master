@@ -10,18 +10,24 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div class="logo">logo</div>
-    <div class="menu">menu
-        <a href="Home.aspx">Home.aspx</a>
-        <a href="Ubicacion.aspx">Ubicacion.aspx</a>
-        <a href="Atractivos.aspx">Atractivos.aspx</a>
-    </div>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+    <div id="principal">
+        <div id="logo">
+            <img src="Contents/img/logo.png" alt="Chalten logo" />
         </div>
-    </form>
-    <div class="footer">footer</div>
+        <div id="menu">
+            <a href="Home.aspx">Home</a>
+            <a href="Ubicacion.aspx">Ubicación</a>
+            <a href="Atractivos.aspx">Atractivos</a>
+        </div>
+        <form id="form1" runat="server">
+            <div id="cuerpo">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+        <div id="pie">
+            Municipalidad de El Chalten - Provincia de Santa Cruz
+        </div>
+    </div>
 </body>
 </html>
