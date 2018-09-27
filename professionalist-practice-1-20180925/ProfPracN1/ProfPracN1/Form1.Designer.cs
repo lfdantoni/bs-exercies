@@ -95,6 +95,7 @@
             this.cmbJobPosition.Name = "cmbJobPosition";
             this.cmbJobPosition.Size = new System.Drawing.Size(173, 21);
             this.cmbJobPosition.TabIndex = 2;
+            this.cmbJobPosition.SelectedValueChanged += new System.EventHandler(this.cmbJobPosition_SelectedValueChanged);
             // 
             // txtLastname
             // 
@@ -111,6 +112,7 @@
             this.txtSalary1.Size = new System.Drawing.Size(173, 20);
             this.txtSalary1.TabIndex = 3;
             this.txtSalary1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalary1_KeyPress);
+            this.txtSalary1.Validated += new System.EventHandler(this.txtSalary1_Validated);
             // 
             // txtSalary2
             // 
@@ -118,6 +120,8 @@
             this.txtSalary2.Name = "txtSalary2";
             this.txtSalary2.Size = new System.Drawing.Size(173, 20);
             this.txtSalary2.TabIndex = 4;
+            this.txtSalary2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalary2_KeyPress);
+            this.txtSalary2.Validated += new System.EventHandler(this.txtSalary2_Validated);
             // 
             // txtSalary3
             // 
@@ -125,6 +129,8 @@
             this.txtSalary3.Name = "txtSalary3";
             this.txtSalary3.Size = new System.Drawing.Size(173, 20);
             this.txtSalary3.TabIndex = 5;
+            this.txtSalary3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalary3_KeyPress);
+            this.txtSalary3.Validated += new System.EventHandler(this.txtSalary3_Validated);
             // 
             // txtName
             // 

@@ -5,14 +5,30 @@ namespace ProfPracN1.Helpers
 {
     public static class EmployeeHelper
     {
-        public static Dictionary<JobTitleEnum, string> GetAllJobTitleDescriptions()
+        public static Dictionary<JobTitleComboOptionsEnum, string> GetComboJobTitleOptions()
         {
-            return new Dictionary<JobTitleEnum, string>()
+            return new Dictionary<JobTitleComboOptionsEnum, string>()
             {
-                {JobTitleEnum.Administrative, "Administrativo"},
-                {JobTitleEnum.Instructor, "Instructor"},
-                {JobTitleEnum.Manager, "Gerente"}
+                {JobTitleComboOptionsEnum.NotSelected, string.Empty},
+                {JobTitleComboOptionsEnum.Administrative, "Administrativo"},
+                {JobTitleComboOptionsEnum.Instructor, "Instructor"},
+                {JobTitleComboOptionsEnum.Manager, "Gerente"}
             };
+        }
+
+        public static JobTitleEnum? GetJobTitle(JobTitleComboOptionsEnum option)
+        {
+            switch (option)
+            {
+                case JobTitleComboOptionsEnum.Manager:
+                    return JobTitleEnum.Manager;
+                case JobTitleComboOptionsEnum.Administrative:
+                    return JobTitleEnum.Administrative;
+                case JobTitleComboOptionsEnum.Instructor:
+                    return JobTitleEnum.Instructor;
+                default:
+                    return null;
+            }
         }
     }
 }
