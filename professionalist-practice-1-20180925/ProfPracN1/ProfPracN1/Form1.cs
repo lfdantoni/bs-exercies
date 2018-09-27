@@ -88,7 +88,7 @@ namespace ProfPracN1
 
             this.Employees = new List<Employee>();
             this.nf = new NumberFormatInfo();
-            this.nf.NumberDecimalSeparator = Envirionment.DECIMAL_SEPARATOR;
+            this.nf.NumberDecimalSeparator = Constants.Environment.DECIMAL_SEPARATOR;
 
             txtInstCount.Text = "0";
             txtAdmCount.Text = "0";
@@ -246,7 +246,7 @@ namespace ProfPracN1
         {
             if (!char.IsDigit(e.KeyChar) &&
                 !char.IsControl(e.KeyChar) &&
-               (e.KeyChar.ToString() != Envirionment.DECIMAL_SEPARATOR || ctrl.Text.IndexOf(Envirionment.DECIMAL_SEPARATOR) >= 0))
+               (e.KeyChar.ToString() != Constants.Environment.DECIMAL_SEPARATOR || ctrl.Text.IndexOf(Constants.Environment.DECIMAL_SEPARATOR) >= 0))
             {
                 this.ShowNumberInvalidError(ctrl);
                 e.Handled = true;

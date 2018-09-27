@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\InformationMessageConstants.cs" />
-    <Compile Include="Constants\Envirionment.cs" />
+    <Compile Include="Constants\Environment.cs" />
     <Compile Include="Constants\ErrorMessageConstants.cs" />
     <Compile Include="Enums\JobTitleComboOptionsEnum.cs" />
     <Compile Include="Enums\JobTitleEnum.cs" />
