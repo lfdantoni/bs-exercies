@@ -46,7 +46,7 @@ namespace ProfPracN1
 
             double sum = employee.Salary1 + employee.Salary2 + employee.Salary3;
             this.txtSum.Text = sum.ToString(nf);
-            this.txtAverage.Text = (sum / 3).ToString(nf);
+            this.txtAverage.Text = (sum / 3).ToString("#.00", nf);
 
         }
 
