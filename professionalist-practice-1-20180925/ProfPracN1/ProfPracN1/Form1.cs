@@ -17,6 +17,8 @@ namespace ProfPracN1
 
         NumberFormatInfo nf;
 
+        private double SumTemp = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -44,9 +46,9 @@ namespace ProfPracN1
 
             this.Employees.Add(employee);
 
-            double sum = employee.Salary1 + employee.Salary2 + employee.Salary3;
-            this.txtSum.Text = sum.ToString(nf);
-            this.txtAverage.Text = (sum / 3).ToString("#.00", nf);
+            this.SumTemp += employee.Salary1 + employee.Salary2 + employee.Salary3;
+            this.txtSum.Text = this.SumTemp.ToString(nf);
+            this.txtAverage.Text = (this.SumTemp / this.Employees.Count).ToString(Constants.Environment.TWO_DECIMALS, nf);
 
         }
 
@@ -58,9 +60,6 @@ namespace ProfPracN1
             txtSalary1.Text = string.Empty;
             txtSalary2.Text = string.Empty;
             txtSalary3.Text = string.Empty;
-
-            txtSum.Text = string.Empty;
-            txtAverage.Text = string.Empty;
 
             this.CleanErrors();
         }
