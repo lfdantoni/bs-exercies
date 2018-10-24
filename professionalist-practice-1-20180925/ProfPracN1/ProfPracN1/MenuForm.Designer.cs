@@ -64,7 +64,7 @@
             // 
             this.cargarEmpleadoToolStripMenuItem.Image = global::ProfPracN1.Properties.Resources.Add_icon;
             this.cargarEmpleadoToolStripMenuItem.Name = "cargarEmpleadoToolStripMenuItem";
-            this.cargarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cargarEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.cargarEmpleadoToolStripMenuItem.Text = "Cargar";
             this.cargarEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.cargarEmpleadoToolStripMenuItem_Click);
             // 
@@ -72,7 +72,7 @@
             // 
             this.listarToolStripMenuItem.Image = global::ProfPracN1.Properties.Resources.list;
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.listarToolStripMenuItem.Text = "Listar";
             this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
@@ -89,8 +89,9 @@
             // 
             this.cargarToolStripMenuItem.Image = global::ProfPracN1.Properties.Resources.Add_icon;
             this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
-            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cargarToolStripMenuItem.Text = "Cargar";
+            this.cargarToolStripMenuItem.Click += new System.EventHandler(this.cargarToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 

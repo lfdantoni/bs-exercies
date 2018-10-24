@@ -42,5 +42,13 @@ namespace ProfPracN1
             listEmployeesForm.Show();
             this.Hide();
         }
+
+        private void cargarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var addTaskForm = new AddTaskForm();
+            addTaskForm.MenuForm = this;
+            addTaskForm.Show();
+            this.Hide();
+        }
     }
 }
