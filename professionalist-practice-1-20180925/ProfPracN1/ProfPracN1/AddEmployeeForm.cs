@@ -52,11 +52,24 @@ namespace ProfPracN1
             };
 
             this.Employees.Add(employee);
+            UpdateSumAve(employee);
 
-            this.SumTemp += employee.Salary1 + employee.Salary2 + employee.Salary3;
+        }
+
+        private void UpdateSumAve(Employee employee = null)
+        {
+            if(employee != null)
+            {
+                this.SumTemp += employee.Salary1 + employee.Salary2 + employee.Salary3;
+            }
+            else
+            {
+                this.SumTemp = Employees.Count > 0 ? Employees.Sum(e => e.Total) : 0;
+            }
+
+            var average = this.Employees.Count > 0 ? this.SumTemp / this.Employees.Count : 0;
             this.txtSum.Text = this.SumTemp.ToString(nf);
-            this.txtAverage.Text = (this.SumTemp / this.Employees.Count).ToString(Constants.Environment.TWO_DECIMALS, nf);
-
+            this.txtAverage.Text = average > 0 ? average.ToString(Constants.Environment.TWO_DECIMALS, nf) : "0";
         }
 
         private void btnClean_Click(object sender, EventArgs e)
@@ -95,12 +108,15 @@ namespace ProfPracN1
             this.nf = new NumberFormatInfo();
             this.nf.NumberDecimalSeparator = Constants.Environment.DECIMAL_SEPARATOR;
 
-            txtInstCount.Text = "0";
-            txtAdmCount.Text = "0";
-            txtManagerCount.Text = "0";
+            txtPaintersCount.Text = "0";
+            txtCleaningStuffCount.Text = "0";
+            txtGenStuffCount.Text = "0";
 
             txtAverage.Text = "0";
             txtSum.Text = "0";
+
+            this.UpdateCounters();
+            this.UpdateSumAve();
 
             this.DisableButtons();
         }
@@ -304,41 +320,44 @@ namespace ProfPracN1
 
         private void UpdateCounters()
         {
-            if (cmbJobPosition.SelectedIndex == 0)
+            if (cmbJobPosition.SelectedIndex == 0 && Employees.Count == 0)
             {
                 return;
             }
 
-            int managerCount = this.Employees
+            int paintersCount = this.Employees
                                 .Where(x => x.JobTitle == JobTitleEnum.Painter)
                                 .Count();
 
-            int admCount = this.Employees
+            int cleaningStuffCount = this.Employees
                                 .Where(x => x.JobTitle == JobTitleEnum.CleaningStuff)
                                 .Count();
 
-            int insCount = this.Employees
+            int generalStuffCount = this.Employees
                                 .Where(x => x.JobTitle == JobTitleEnum.GenenralStaff)
                                 .Count();
 
-            switch ((JobTitleComboOptionsEnum)cmbJobPosition.SelectedValue)
+            if (cmbJobPosition.SelectedIndex != 0)
             {
-                case JobTitleComboOptionsEnum.Painter:
-                    managerCount++;
-                    break;
-                case JobTitleComboOptionsEnum.CleaningStuff:
-                    admCount++;
-                    break;
-                case JobTitleComboOptionsEnum.GeneralStuff:
-                    insCount++;
-                    break;
-                default:
-                    break;
+                switch ((JobTitleComboOptionsEnum)cmbJobPosition.SelectedValue)
+                {
+                    case JobTitleComboOptionsEnum.Painter:
+                        paintersCount++;
+                        break;
+                    case JobTitleComboOptionsEnum.CleaningStuff:
+                        cleaningStuffCount++;
+                        break;
+                    case JobTitleComboOptionsEnum.GeneralStuff:
+                        generalStuffCount++;
+                        break;
+                    default:
+                        break;
+                }
             }
 
-            this.txtManagerCount.Text = managerCount.ToString();
-            this.txtAdmCount.Text = admCount.ToString();
-            this.txtInstCount.Text = insCount.ToString();
+            this.txtPaintersCount.Text = paintersCount.ToString();
+            this.txtCleaningStuffCount.Text = cleaningStuffCount.ToString();
+            this.txtGenStuffCount.Text = generalStuffCount.ToString();
 
 
 

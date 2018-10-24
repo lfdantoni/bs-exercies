@@ -46,9 +46,9 @@
             this.txtAverage = new System.Windows.Forms.TextBox();
             this.txtSum = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtInstCount = new System.Windows.Forms.TextBox();
-            this.txtManagerCount = new System.Windows.Forms.TextBox();
-            this.txtAdmCount = new System.Windows.Forms.TextBox();
+            this.txtPaintersCount = new System.Windows.Forms.TextBox();
+            this.txtGenStuffCount = new System.Windows.Forms.TextBox();
+            this.txtCleaningStuffCount = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -204,14 +204,14 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(342, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(298, 257);
+            this.groupBox2.Size = new System.Drawing.Size(363, 257);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Salida de datos";
             // 
             // txtAverage
             // 
-            this.txtAverage.Location = new System.Drawing.Point(109, 60);
+            this.txtAverage.Location = new System.Drawing.Point(142, 56);
             this.txtAverage.Name = "txtAverage";
             this.txtAverage.ReadOnly = true;
             this.txtAverage.Size = new System.Drawing.Size(156, 20);
@@ -219,7 +219,7 @@
             // 
             // txtSum
             // 
-            this.txtSum.Location = new System.Drawing.Point(109, 25);
+            this.txtSum.Location = new System.Drawing.Point(142, 21);
             this.txtSum.Name = "txtSum";
             this.txtSum.ReadOnly = true;
             this.txtSum.Size = new System.Drawing.Size(156, 20);
@@ -227,69 +227,69 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txtInstCount);
-            this.groupBox4.Controls.Add(this.txtManagerCount);
-            this.groupBox4.Controls.Add(this.txtAdmCount);
+            this.groupBox4.Controls.Add(this.txtPaintersCount);
+            this.groupBox4.Controls.Add(this.txtGenStuffCount);
+            this.groupBox4.Controls.Add(this.txtCleaningStuffCount);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Location = new System.Drawing.Point(0, 98);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(298, 159);
+            this.groupBox4.Size = new System.Drawing.Size(363, 159);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Empleados";
             // 
-            // txtInstCount
+            // txtPaintersCount
             // 
-            this.txtInstCount.Location = new System.Drawing.Point(109, 40);
-            this.txtInstCount.Name = "txtInstCount";
-            this.txtInstCount.ReadOnly = true;
-            this.txtInstCount.Size = new System.Drawing.Size(156, 20);
-            this.txtInstCount.TabIndex = 17;
+            this.txtPaintersCount.Location = new System.Drawing.Point(142, 36);
+            this.txtPaintersCount.Name = "txtPaintersCount";
+            this.txtPaintersCount.ReadOnly = true;
+            this.txtPaintersCount.Size = new System.Drawing.Size(156, 20);
+            this.txtPaintersCount.TabIndex = 17;
             // 
-            // txtManagerCount
+            // txtGenStuffCount
             // 
-            this.txtManagerCount.Location = new System.Drawing.Point(109, 112);
-            this.txtManagerCount.Name = "txtManagerCount";
-            this.txtManagerCount.ReadOnly = true;
-            this.txtManagerCount.Size = new System.Drawing.Size(156, 20);
-            this.txtManagerCount.TabIndex = 16;
+            this.txtGenStuffCount.Location = new System.Drawing.Point(142, 108);
+            this.txtGenStuffCount.Name = "txtGenStuffCount";
+            this.txtGenStuffCount.ReadOnly = true;
+            this.txtGenStuffCount.Size = new System.Drawing.Size(156, 20);
+            this.txtGenStuffCount.TabIndex = 16;
             // 
-            // txtAdmCount
+            // txtCleaningStuffCount
             // 
-            this.txtAdmCount.Location = new System.Drawing.Point(109, 73);
-            this.txtAdmCount.Name = "txtAdmCount";
-            this.txtAdmCount.ReadOnly = true;
-            this.txtAdmCount.Size = new System.Drawing.Size(156, 20);
-            this.txtAdmCount.TabIndex = 15;
+            this.txtCleaningStuffCount.Location = new System.Drawing.Point(142, 69);
+            this.txtCleaningStuffCount.Name = "txtCleaningStuffCount";
+            this.txtCleaningStuffCount.ReadOnly = true;
+            this.txtCleaningStuffCount.Size = new System.Drawing.Size(156, 20);
+            this.txtCleaningStuffCount.TabIndex = 15;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(23, 76);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 13);
+            this.label11.Size = new System.Drawing.Size(111, 13);
             this.label11.TabIndex = 3;
-            this.label11.Text = "Administrativos";
+            this.label11.Text = "Operarios de Limpieza";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(23, 115);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 13);
+            this.label10.Size = new System.Drawing.Size(103, 13);
             this.label10.TabIndex = 2;
-            this.label10.Text = "Gerentes";
+            this.label10.Text = "Operarios Generales";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(23, 43);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 13);
+            this.label9.Size = new System.Drawing.Size(45, 13);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Instructores";
+            this.label9.Text = "Pintores";
             // 
             // label8
             // 
@@ -359,7 +359,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 363);
+            this.ClientSize = new System.Drawing.Size(717, 363);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -399,9 +399,9 @@
         private System.Windows.Forms.TextBox txtAverage;
         private System.Windows.Forms.TextBox txtSum;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtInstCount;
-        private System.Windows.Forms.TextBox txtManagerCount;
-        private System.Windows.Forms.TextBox txtAdmCount;
+        private System.Windows.Forms.TextBox txtPaintersCount;
+        private System.Windows.Forms.TextBox txtGenStuffCount;
+        private System.Windows.Forms.TextBox txtCleaningStuffCount;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
