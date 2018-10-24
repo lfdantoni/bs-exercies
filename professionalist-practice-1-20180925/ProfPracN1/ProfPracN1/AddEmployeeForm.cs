@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ProfPracN1
 {
-    public partial class Form1 : Form
+    public partial class AddEmployeeForm : Form
     {
         public List<Employee> Employees { get; set; }
 
@@ -19,7 +19,9 @@ namespace ProfPracN1
 
         private double SumTemp = 0;
 
-        public Form1()
+        public MenuForm MenuForm { get; set; }
+
+        public AddEmployeeForm()
         {
             InitializeComponent();
         }
@@ -336,6 +338,11 @@ namespace ProfPracN1
 
 
 
+        }
+
+        private void AddEmployeeForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MenuForm.Show();
         }
     }
 }

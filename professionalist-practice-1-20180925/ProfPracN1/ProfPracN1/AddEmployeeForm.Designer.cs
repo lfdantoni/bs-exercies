@@ -1,6 +1,6 @@
 ﻿namespace ProfPracN1
 {
-    partial class Form1
+    partial class AddEmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -355,7 +355,7 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // Form1
+            // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -363,8 +363,9 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "AddEmployeeForm";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddEmployeeForm_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
