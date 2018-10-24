@@ -10,9 +10,9 @@ namespace ProfPracN1.Helpers
             return new Dictionary<JobTitleComboOptionsEnum, string>()
             {
                 {JobTitleComboOptionsEnum.NotSelected, string.Empty},
-                {JobTitleComboOptionsEnum.Administrative, "Administrativo"},
-                {JobTitleComboOptionsEnum.Instructor, "Instructor"},
-                {JobTitleComboOptionsEnum.Manager, "Gerente"}
+                {JobTitleComboOptionsEnum.CleaningStuff, "Operario de Limpieza"},
+                {JobTitleComboOptionsEnum.GeneralStuff, "Operario General"},
+                {JobTitleComboOptionsEnum.Painter, "Pintor"}
             };
         }
 
@@ -20,14 +20,29 @@ namespace ProfPracN1.Helpers
         {
             switch (option)
             {
-                case JobTitleComboOptionsEnum.Manager:
-                    return JobTitleEnum.Manager;
-                case JobTitleComboOptionsEnum.Administrative:
-                    return JobTitleEnum.Administrative;
-                case JobTitleComboOptionsEnum.Instructor:
-                    return JobTitleEnum.Instructor;
+                case JobTitleComboOptionsEnum.Painter:
+                    return JobTitleEnum.Painter;
+                case JobTitleComboOptionsEnum.CleaningStuff:
+                    return JobTitleEnum.CleaningStuff;
+                case JobTitleComboOptionsEnum.GeneralStuff:
+                    return JobTitleEnum.GenenralStaff;
                 default:
                     return null;
+            }
+        }
+
+        public static string GetJobTitleDescription(JobTitleEnum jobTitle)
+        {
+            switch (jobTitle)
+            {
+                case JobTitleEnum.Painter:
+                    return "Pintor";
+                case JobTitleEnum.CleaningStuff:
+                    return "Operario de Limpieza";
+                case JobTitleEnum.GenenralStaff:
+                    return "Operario General";
+                default:
+                    return string.Empty;
             }
         }
     }

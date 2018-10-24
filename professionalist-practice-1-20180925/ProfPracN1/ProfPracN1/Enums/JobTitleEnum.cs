@@ -2,8 +2,8 @@
 {
     public enum JobTitleEnum
     {
-        Manager,
-        Administrative,
-        Instructor
+        Painter,
+        CleaningStuff,
+        GenenralStaff
     }
 }

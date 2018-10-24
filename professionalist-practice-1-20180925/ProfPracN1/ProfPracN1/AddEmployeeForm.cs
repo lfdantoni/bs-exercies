@@ -13,7 +13,12 @@ namespace ProfPracN1
 {
     public partial class AddEmployeeForm : Form
     {
-        public List<Employee> Employees { get; set; }
+        public List<Employee> Employees {
+            get
+            {
+                return this.MenuForm.Employees;
+            }
+        }
 
         NumberFormatInfo nf;
 
@@ -87,7 +92,6 @@ namespace ProfPracN1
             this.cmbJobPosition.ValueMember = "Key";
             this.cmbJobPosition.DisplayMember = "Value";
 
-            this.Employees = new List<Employee>();
             this.nf = new NumberFormatInfo();
             this.nf.NumberDecimalSeparator = Constants.Environment.DECIMAL_SEPARATOR;
 
@@ -306,26 +310,26 @@ namespace ProfPracN1
             }
 
             int managerCount = this.Employees
-                                .Where(x => x.JobTitle == JobTitleEnum.Manager)
+                                .Where(x => x.JobTitle == JobTitleEnum.Painter)
                                 .Count();
 
             int admCount = this.Employees
-                                .Where(x => x.JobTitle == JobTitleEnum.Administrative)
+                                .Where(x => x.JobTitle == JobTitleEnum.CleaningStuff)
                                 .Count();
 
             int insCount = this.Employees
-                                .Where(x => x.JobTitle == JobTitleEnum.Instructor)
+                                .Where(x => x.JobTitle == JobTitleEnum.GenenralStaff)
                                 .Count();
 
             switch ((JobTitleComboOptionsEnum)cmbJobPosition.SelectedValue)
             {
-                case JobTitleComboOptionsEnum.Manager:
+                case JobTitleComboOptionsEnum.Painter:
                     managerCount++;
                     break;
-                case JobTitleComboOptionsEnum.Administrative:
+                case JobTitleComboOptionsEnum.CleaningStuff:
                     admCount++;
                     break;
-                case JobTitleComboOptionsEnum.Instructor:
+                case JobTitleComboOptionsEnum.GeneralStuff:
                     insCount++;
                     break;
                 default:

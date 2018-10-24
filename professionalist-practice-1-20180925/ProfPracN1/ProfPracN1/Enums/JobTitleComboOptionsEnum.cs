@@ -3,8 +3,8 @@
     public enum JobTitleComboOptionsEnum
     {
         NotSelected,
-        Manager,
-        Administrative,
-        Instructor
+        Painter,
+        CleaningStuff,
+        GeneralStuff
     }
 }
