@@ -9,6 +9,7 @@ namespace ProfPracN1
     public partial class MenuForm : Form
     {
         public readonly List<Employee> Employees = new List<Employee>();
+        public readonly List<Task> Tasks = new List<Task>();
         public MenuForm()
         {
             InitializeComponent();
