@@ -142,5 +142,50 @@ namespace ProductosSite.Services
 
             return resp > 0;
         }
+
+        public bool UpdateProduct(int code, string name, string category, decimal costPrice,
+            double margin, double iva, decimal grossPrice, decimal sellPrice)
+        {
+            int resp = -1;
+
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(this._connectionString))
+                {
+                    string qInsertProduct = @"UPDATE [dbo].[Productos]
+                                               SET [nombre] =  @name
+                                                  ,[categoria] =  @category
+                                                  ,[preciocosto] =  @costPrice
+                                                  ,[margen] =  @margin
+                                                  ,[iva] =  @iva
+                                                  ,[preciobruto] =  @grossPrice
+                                                  ,[precioventa] =  @sellPrice
+                                             WHERE codigo=@code";
+
+                    using (SqlCommand cmd = new SqlCommand(qInsertProduct, sqlConnection))
+                    {
+                        cmd.Parameters.AddWithValue("@code", code);
+                        cmd.Parameters.AddWithValue("@name", name);
+                        cmd.Parameters.AddWithValue("@category", category);
+                        cmd.Parameters.AddWithValue("@costPrice", costPrice);
+                        cmd.Parameters.AddWithValue("@margin", margin);
+                        cmd.Parameters.AddWithValue("@iva", iva);
+                        cmd.Parameters.AddWithValue("@grossPrice", grossPrice);
+                        cmd.Parameters.AddWithValue("@sellPrice", sellPrice);
+
+                        sqlConnection.Open();
+                        resp = cmd.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+
+            return resp > 0;
+        }
     }
 }

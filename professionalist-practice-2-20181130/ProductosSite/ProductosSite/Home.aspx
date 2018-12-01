@@ -66,7 +66,7 @@
                         <asp:Button ID="btnList" runat="server" Text="Listar" OnClick="btnList_Click"/>
                         <asp:Button ID="btnInsert" runat="server" Text="Insertar" OnClick="btnInsert_Click"/>
                         <asp:Button ID="btnDelete" runat="server" Text="Borrar" OnClick="btnDelete_Click"/>
-                        <asp:Button ID="btnEdit" runat="server" Text="Modificar" />
+                        <asp:Button ID="btnEdit" runat="server" Text="Modificar" OnClick="btnEdit_Click"/>
                         <asp:Button ID="btnGetData" runat="server" Text="Obtener Datos" OnClick="btnGetData_Click" />
                         <asp:Button ID="btnExit" runat="server" Text="Salir" />
                     </td>

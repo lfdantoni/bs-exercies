@@ -101,8 +101,19 @@ namespace ProductosSite
 
         protected void btnInsert_Click(object sender, EventArgs e)
         {
+            int codeNum = -1;
+
+            this.lblMessage.Text = string.Empty;
+
+            if (string.IsNullOrEmpty(txtCode.Text) ||
+                !int.TryParse(txtCode.Text, out codeNum))
+            {
+                this.lblMessage.Text = "Debe ingresar un codigo de producto numerico";
+                return;
+            }
+
             var resp = _service.InsertProduct(
-                int.Parse(txtCode.Text),
+                codeNum,
                 txtName.Text,
                 txtCategory.Text,
                 decimal.Parse(txtCostPrice.Text),
@@ -145,6 +156,39 @@ namespace ProductosSite
             else
             {
                 this.lblMessage.Text = "Ocurrio un error, verifique que el codigo exista.";
+            }
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            int codeNum = -1;
+
+            this.lblMessage.Text = string.Empty;
+
+            if (string.IsNullOrEmpty(txtCode.Text) ||
+                !int.TryParse(txtCode.Text, out codeNum))
+            {
+                this.lblMessage.Text = "Debe ingresar un codigo de producto numerico";
+                return;
+            }
+
+            var resp = _service.UpdateProduct(
+                codeNum,
+                txtName.Text,
+                txtCategory.Text,
+                decimal.Parse(txtCostPrice.Text),
+                double.Parse(txtMargin.Text),
+                double.Parse(txtIva.Text),
+                decimal.Parse(lblGrossPrice.Text),
+                decimal.Parse(lblSellPrice.Text));
+
+            if (resp)
+            {
+                this.lblMessage.Text = "Producto actualizado correctamente";
+            }
+            else
+            {
+                this.lblMessage.Text = "Ocurrio un error, verifique los tipos datos y que el codigo no se encuentre cargado.";
             }
         }
     }
