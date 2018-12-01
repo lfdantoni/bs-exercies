@@ -1,6 +1,7 @@
 ﻿using ProductosSite.Services;
 using System;
 using System.Data;
+using System.Web.UI;
 
 namespace ProductosSite
 {
@@ -124,7 +125,7 @@ namespace ProductosSite
 
             if (resp)
             {
-                this.lblMessage.Text = "Producto cargado correctamente";
+                this.lblMessage.Text = "Producto "+ codeNum +" cargado correctamente";
             }
             else
             {
@@ -133,6 +134,13 @@ namespace ProductosSite
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            pnlDialog.Visible = true;
+            lblMessage.Text = string.Empty;
+            lblDialog.Text = "Desea eleminar este registro? (si/no)";
+        }
+
+        protected void ConfirmDeleteProduct(object sender, EventArgs e)
         {
             int codeNum = -1;
 
@@ -150,15 +158,17 @@ namespace ProductosSite
 
             if (resp)
             {
-                this.lblMessage.Text = "Producto borrado correctamente";
+                this.lblMessage.Text = "Producto "+ codeNum +" borrado correctamente";
                 txtCode.Text = string.Empty;
             }
             else
             {
                 this.lblMessage.Text = "Ocurrio un error, verifique que el codigo exista.";
             }
-        }
 
+            pnlDialog.Visible = false;
+        }
+  
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             int codeNum = -1;
@@ -184,12 +194,23 @@ namespace ProductosSite
 
             if (resp)
             {
-                this.lblMessage.Text = "Producto actualizado correctamente";
+                this.lblMessage.Text = "Producto "+ codeNum +" actualizado correctamente";
             }
             else
             {
                 this.lblMessage.Text = "Ocurrio un error, verifique los tipos datos y que el codigo no se encuentre cargado.";
             }
+        }
+
+        protected void btnCancelDialog_Click(object sender, EventArgs e)
+        {
+            pnlDialog.Visible = false;
+        }
+
+        protected void btnExit_Click(object sender, EventArgs e)
+        {
+            
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "myCloseScript", "window.open('https://www.google.com', '_self', '');", true);
         }
     }
 }

@@ -68,12 +68,17 @@
                         <asp:Button ID="btnDelete" runat="server" Text="Borrar" OnClick="btnDelete_Click"/>
                         <asp:Button ID="btnEdit" runat="server" Text="Modificar" OnClick="btnEdit_Click"/>
                         <asp:Button ID="btnGetData" runat="server" Text="Obtener Datos" OnClick="btnGetData_Click" />
-                        <asp:Button ID="btnExit" runat="server" Text="Salir" />
+                        <asp:Button ID="btnExit" runat="server" Text="Salir" OnClick="btnExit_Click" />
                     </td>
                 </tr>
             </tfoot>
         </table>
         <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+        <asp:Panel ID="pnlDialog" runat="server" Visible="false">
+            <asp:Label ID="lblDialog" runat="server" Text=""></asp:Label>
+            <asp:Button ID="btnConfirmDialog" runat="server" Text="Si" OnClick="ConfirmDeleteProduct" />
+            <asp:Button ID="btnCancelDialog" runat="server" Text="No" OnClick="btnCancelDialog_Click"/>
+        </asp:Panel>
     </div>
     </form>
 </body>
