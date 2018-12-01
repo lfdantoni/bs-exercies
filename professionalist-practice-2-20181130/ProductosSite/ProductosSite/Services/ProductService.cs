@@ -20,15 +20,14 @@ namespace ProductosSite.Services
 
             using (SqlConnection sqlConnection = new SqlConnection(this._connectionString))
             {
-                sqlConnection.Open();
+                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT *  FROM [BaseProductos].[dbo].[Productos]", sqlConnection))
+                {
+                    DataSet dataSet = new DataSet();
 
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT *  FROM [BaseProductos].[dbo].[Productos]", sqlConnection);
+                    sqlDataAdapter.Fill(dataSet);
 
-                DataSet dataSet = new DataSet();
-
-                sqlDataAdapter.Fill(dataSet);
-
-                response = dataSet.Tables[0];
+                    response = dataSet.Tables[0];
+                }
             }
 
             return response;
@@ -40,17 +39,17 @@ namespace ProductosSite.Services
 
             using (SqlConnection sqlConnection = new SqlConnection(this._connectionString))
             {
-                sqlConnection.Open();
-
                 string qGetProduct = "SELECT *  FROM [BaseProductos].[dbo].[Productos] WHERE Codigo = @Code";
 
-                SqlCommand cmd = new SqlCommand(qGetProduct, sqlConnection);
-    
-                cmd.Parameters.AddWithValue("@Code", code);
+                using (SqlCommand cmd = new SqlCommand(qGetProduct, sqlConnection))
+                {
+                    cmd.Parameters.AddWithValue("@Code", code);
 
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-
-                sqlDataAdapter.Fill(ds);
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd))
+                    {
+                        sqlDataAdapter.Fill(ds);
+                    }
+                } 
             }
 
             if (ds.Tables[0].Rows.Count == 0)
@@ -70,8 +69,6 @@ namespace ProductosSite.Services
             {  
                 using (SqlConnection sqlConnection = new SqlConnection(this._connectionString))
                 {
-                    sqlConnection.Open();
-
                     string qInsertProduct = @"INSERT INTO [BaseProductos].[dbo].[Productos]
                                                    ([codigo]
                                                    ,[nombre]
@@ -91,18 +88,20 @@ namespace ProductosSite.Services
                                                    ,@grossPrice
                                                    ,@sellPrice)";
 
-                    SqlCommand cmd = new SqlCommand(qInsertProduct, sqlConnection);
+                    using (SqlCommand cmd = new SqlCommand(qInsertProduct, sqlConnection))
+                    {
+                        cmd.Parameters.AddWithValue("@code", code);
+                        cmd.Parameters.AddWithValue("@name", name);
+                        cmd.Parameters.AddWithValue("@category", category);
+                        cmd.Parameters.AddWithValue("@costPrice", costPrice);
+                        cmd.Parameters.AddWithValue("@margin", margin);
+                        cmd.Parameters.AddWithValue("@iva", iva);
+                        cmd.Parameters.AddWithValue("@grossPrice", grossPrice);
+                        cmd.Parameters.AddWithValue("@sellPrice", sellPrice);
 
-                    cmd.Parameters.AddWithValue("@code", code);
-                    cmd.Parameters.AddWithValue("@name", name);
-                    cmd.Parameters.AddWithValue("@category", category);
-                    cmd.Parameters.AddWithValue("@costPrice", costPrice);
-                    cmd.Parameters.AddWithValue("@margin", margin);
-                    cmd.Parameters.AddWithValue("@iva", iva);
-                    cmd.Parameters.AddWithValue("@grossPrice", grossPrice);
-                    cmd.Parameters.AddWithValue("@sellPrice", sellPrice);
-
-                    resp = cmd.ExecuteNonQuery();
+                        sqlConnection.Open();
+                        resp = cmd.ExecuteNonQuery();
+                    } 
                 }
 
             }
