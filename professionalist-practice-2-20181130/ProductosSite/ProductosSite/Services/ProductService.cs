@@ -1,4 +1,5 @@
 ﻿using ProductosSite.Utils;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -31,6 +32,33 @@ namespace ProductosSite.Services
             }
 
             return response;
+        }
+
+        public DataRow GetProduct(int code)
+        {
+            DataSet ds = new DataSet();
+
+            using (SqlConnection sqlConnection = new SqlConnection(this._connectionString))
+            {
+                sqlConnection.Open();
+
+                string qGetProduct = "SELECT *  FROM [BaseProductos].[dbo].[Productos] WHERE Codigo = @Code";
+
+                SqlCommand cmd = new SqlCommand(qGetProduct, sqlConnection);
+    
+                cmd.Parameters.AddWithValue("@Code", code);
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+
+                sqlDataAdapter.Fill(ds);
+            }
+
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                throw new Exception("El producto no existe");
+            }
+
+            return ds.Tables[0].Rows[0];
         }
     }
 }

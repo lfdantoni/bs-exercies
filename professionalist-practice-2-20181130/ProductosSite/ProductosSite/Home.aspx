@@ -32,31 +32,31 @@
                 <tr>
                     <td>Precio Costo</td>
                     <td>
-                        <asp:TextBox ID="txtCostPrice" runat="server"></asp:TextBox>
+                        $<asp:TextBox ID="txtCostPrice" runat="server" AutoPostBack="true" OnTextChanged="txtCostPrice_TextChanged"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>Margen</td>
                     <td>
-                        <asp:TextBox ID="txtMargin" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtMargin" runat="server" AutoPostBack="true" OnTextChanged="txtMargin_TextChanged"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>IVA</td>
                     <td>
-                       <asp:TextBox ID="txtIva" runat="server"></asp:TextBox>
+                       <asp:TextBox ID="txtIva" runat="server" AutoPostBack="true" OnTextChanged="txtIva_TextChanged"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>Precio Bruto</td>
                     <td>
-                        <asp:Label ID="lblGrossPrice" runat="server" Text="Label"></asp:Label>
+                        $<asp:Label ID="lblGrossPrice" runat="server" Text=""></asp:Label>
                     </td>
                 </tr>
                 <tr>
                     <td>Precio Venta</td>
                     <td>
-                        <asp:Label ID="lblSellPrice" runat="server" Text="Label"></asp:Label>
+                        $<asp:Label ID="lblSellPrice" runat="server" Text=""></asp:Label>
                     </td>
                 </tr>
             </tbody>
@@ -67,12 +67,13 @@
                         <asp:Button ID="btnInsert" runat="server" Text="Insertar" />
                         <asp:Button ID="btnDelete" runat="server" Text="Borrar" />
                         <asp:Button ID="btnEdit" runat="server" Text="Modificar" />
-                        <asp:Button ID="btnGetData" runat="server" Text="Obtener Datos" />
+                        <asp:Button ID="btnGetData" runat="server" Text="Obtener Datos" OnClick="btnGetData_Click" />
                         <asp:Button ID="btnExit" runat="server" Text="Salir" />
                     </td>
                 </tr>
             </tfoot>
         </table>
+        <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
     </div>
     </form>
 </body>
