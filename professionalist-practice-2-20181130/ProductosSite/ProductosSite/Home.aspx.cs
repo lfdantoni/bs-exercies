@@ -120,5 +120,32 @@ namespace ProductosSite
                 this.lblMessage.Text = "Ocurrio un error, verifique los tipos datos y que el codigo no se encuentre cargado.";
             }
         }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            int codeNum = -1;
+
+            this.lblMessage.Text = string.Empty;
+
+            if (string.IsNullOrEmpty(txtCode.Text) ||
+                !int.TryParse(txtCode.Text, out codeNum))
+            {
+                this.lblMessage.Text = "Debe ingresar un codigo de producto numerico";
+                ResetFields();
+                return;
+            }
+
+            var resp = _service.DeleteProduct(codeNum);
+
+            if (resp)
+            {
+                this.lblMessage.Text = "Producto borrado correctamente";
+                txtCode.Text = string.Empty;
+            }
+            else
+            {
+                this.lblMessage.Text = "Ocurrio un error, verifique que el codigo exista.";
+            }
+        }
     }
 }

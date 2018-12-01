@@ -113,5 +113,34 @@ namespace ProductosSite.Services
 
             return resp > 0;
         }
+
+        public bool DeleteProduct(int code)
+        {
+            int resp = -1;
+
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(this._connectionString))
+                {
+                    string qInsertProduct = @"DELETE FROM [dbo].[Productos] WHERE codigo=@code";
+
+                    using (SqlCommand cmd = new SqlCommand(qInsertProduct, sqlConnection))
+                    {
+                        cmd.Parameters.AddWithValue("@code", code);
+
+                        sqlConnection.Open();
+                        resp = cmd.ExecuteNonQuery();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+
+            return resp > 0;
+        }
     }
 }
