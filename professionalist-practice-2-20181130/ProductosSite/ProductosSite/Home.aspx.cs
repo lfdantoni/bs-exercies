@@ -98,5 +98,27 @@ namespace ProductosSite
         {
             SetGrossAndSellPrices();
         }
+
+        protected void btnInsert_Click(object sender, EventArgs e)
+        {
+            var resp = _service.InsertProduct(
+                int.Parse(txtCode.Text),
+                txtName.Text,
+                txtCategory.Text,
+                decimal.Parse(txtCostPrice.Text),
+                double.Parse(txtMargin.Text),
+                double.Parse(txtIva.Text),
+                decimal.Parse(lblGrossPrice.Text),
+                decimal.Parse(lblSellPrice.Text));
+
+            if (resp)
+            {
+                this.lblMessage.Text = "Producto cargado correctamente";
+            }
+            else
+            {
+                this.lblMessage.Text = "Ocurrio un error, verifique los tipos datos y que el codigo no se encuentre cargado.";
+            }
+        }
     }
 }
