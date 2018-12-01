@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
+﻿using ProductosSite.Utils;
+using System;
+using System.Web.Configuration;
 
 namespace ProductosSite
 {
@@ -11,6 +8,7 @@ namespace ProductosSite
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            ApplicationSettings.ConnectionString = WebConfigurationManager.ConnectionStrings["ConnStringProducts"].ConnectionString;
         }
     }
 }
