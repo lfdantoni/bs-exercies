@@ -5,18 +5,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="Content/styles.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-        <table border="1">
+        <table border="1" class="table table-dark">
             <tbody>
                 <tr>
                     <td>Codigo</td>
                     <td>
                         <asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCode" ErrorMessage="Debe ser un numero" ForeColor="Red" ValidationExpression="\d*"></asp:RegularExpressionValidator>  
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCode" ErrorMessage="El codigo es requerido" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
