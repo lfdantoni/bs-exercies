@@ -15,6 +15,8 @@
                     <td>Codigo</td>
                     <td>
                         <asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCode" ErrorMessage="Debe ser un numero" ForeColor="Red" ValidationExpression="\d*"></asp:RegularExpressionValidator>  
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCode" ErrorMessage="El codigo es requerido" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -33,18 +35,21 @@
                     <td>Precio Costo</td>
                     <td>
                         $<asp:TextBox ID="txtCostPrice" runat="server" AutoPostBack="true" OnTextChanged="txtCostPrice_TextChanged"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtCostPrice" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="[0-9]+(\.[0-9]*)?"></asp:RegularExpressionValidator>  
                     </td>
                 </tr>
                 <tr>
                     <td>Margen</td>
                     <td>
                         <asp:TextBox ID="txtMargin" runat="server" AutoPostBack="true" OnTextChanged="txtMargin_TextChanged"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtMargin" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="[0-9]+(\.[0-9]*)?"></asp:RegularExpressionValidator>  
                     </td>
                 </tr>
                 <tr>
                     <td>IVA</td>
                     <td>
                        <asp:TextBox ID="txtIva" runat="server" AutoPostBack="true" OnTextChanged="txtIva_TextChanged"></asp:TextBox>
+                       <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtIva" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="[0-9]+(\.[0-9]*)?"></asp:RegularExpressionValidator>                      
                     </td>
                 </tr>
                 <tr>

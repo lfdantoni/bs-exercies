@@ -20,6 +20,11 @@ namespace ProductosSite
 
         protected void btnGetData_Click(object sender, EventArgs e)
         {
+            if(!Page.IsValid)
+            {
+                return;
+            }
+
             int codeNum = -1;
 
             this.lblMessage.Text = string.Empty;
@@ -56,6 +61,12 @@ namespace ProductosSite
 
         private void SetGrossAndSellPrices()
         {
+            Page.Validate();
+            if (!Page.IsValid)
+            {
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtCostPrice.Text) ||
                 string.IsNullOrEmpty(txtMargin.Text) ||
                 string.IsNullOrEmpty(txtIva.Text))
@@ -102,6 +113,11 @@ namespace ProductosSite
 
         protected void btnInsert_Click(object sender, EventArgs e)
         {
+            if (!Page.IsValid)
+            {
+                return;
+            }
+
             int codeNum = -1;
 
             this.lblMessage.Text = string.Empty;
@@ -135,6 +151,13 @@ namespace ProductosSite
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            ResetFields();
+
+            if (!Page.IsValid)
+            {
+                return;
+            }
+
             pnlDialog.Visible = true;
             lblMessage.Text = string.Empty;
             lblDialog.Text = "Desea eleminar este registro? (si/no)";
@@ -142,6 +165,11 @@ namespace ProductosSite
 
         protected void ConfirmDeleteProduct(object sender, EventArgs e)
         {
+            if (!Page.IsValid)
+            {
+                return;
+            }
+
             int codeNum = -1;
 
             this.lblMessage.Text = string.Empty;
@@ -171,6 +199,11 @@ namespace ProductosSite
   
         protected void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!Page.IsValid)
+            {
+                return;
+            }
+
             int codeNum = -1;
 
             this.lblMessage.Text = string.Empty;
